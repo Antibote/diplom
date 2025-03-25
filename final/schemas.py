@@ -1,13 +1,13 @@
-from datetime import date
+from datetime import datetime
 
 from pydantic import BaseModel
 
 
 class TaskForm(BaseModel):
-    dob: date
+    dob: datetime
     name: str
     task: str
-    date_create: date
+    date_create: datetime
     who_cook: str
     who_comp: str
     result: bool

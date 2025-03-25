@@ -20,6 +20,7 @@ c.Link.model_rebuild()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     create_db_and_tables()
+    print(app)
     yield
 
 
@@ -65,10 +66,10 @@ def tasks_table() -> list[AnyComponent]:
             c.Table(
                 data=tasks,
                 data_model=Task,
-                columns=[DisplayLookup(field='dob', title='Дата', mode=DisplayMode.date),
+                columns=[DisplayLookup(field='dob', title='Дата', mode=DisplayMode.datetime),
                          DisplayLookup(field='name', title='Название', on_click=GoToEvent(url='/task/{id}/')),
                          DisplayLookup(field='task', title='Задача'),
-                         DisplayLookup(field='date_create', title='Дата изготовления', mode=DisplayMode.date),
+                         DisplayLookup(field='date_create', title='Дата изготовления', mode=DisplayMode.datetime),
                          DisplayLookup(field='who_cook', title='Кто приготовил'),
                          DisplayLookup(field='who_comp', title='Кто выполнил'),
                          DisplayLookup(field='result', title='Результат')
