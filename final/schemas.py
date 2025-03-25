@@ -3,9 +3,15 @@ from datetime import date
 from pydantic import BaseModel
 
 
-class UserForm(BaseModel):
-    name: str
+class TaskForm(BaseModel):
     dob: date
+    name: str
+    task: str
+    date_create: date
+    who_cook: str
+    who_comp: str
+    result: bool
 
-class DeleteUserForm(BaseModel):
+
+class DeleteTaskForm(BaseModel):
     confirm: bool

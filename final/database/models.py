@@ -1,7 +1,14 @@
 from datetime import date
 from sqlmodel import SQLModel, Field
 
-class User(SQLModel, table=True):
+class Task(SQLModel, table=True):
     id: int = Field(primary_key=True)
-    name: str
     dob: date
+    name: str
+    task: str
+    date_create: date
+    who_cook: str
+    who_comp: str
+    result: str
+
+
